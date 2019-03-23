@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/tv_dynamic_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="动态"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:gravity="center"/>
+
+    <ListView
+        android:id="@+id/lv_dynamic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_dynamic_title"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:scrollbars="none"/>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tv_tip"
+        android:text="还没登录呢，不能看动态！！！"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/userColor"/>
+
+</RelativeLayout>

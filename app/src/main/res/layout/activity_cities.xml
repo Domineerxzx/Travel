@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <ImageView
+                android:id="@+id/iv_city"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@color/line" />
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@mipmap/back_white" />
+
+            <TextView
+                android:id="@+id/tv_city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@id/iv_back"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="沈阳"
+                android:textColor="#fff"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_city_name_speak"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/tv_city_name"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="SHENYANG"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/iv_city_star_1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/collection_click" />
+
+            <ImageView
+                android:id="@+id/iv_city_star_2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_city_star_1"
+                android:background="@mipmap/collection_click" />
+
+            <ImageView
+                android:id="@+id/iv_city_star_3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_city_star_2"
+                android:background="@mipmap/collection_click" />
+
+            <ImageView
+                android:id="@+id/iv_city_star_4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_city_star_3"
+                android:background="@mipmap/collection_click" />
+
+            <ImageView
+                android:id="@+id/iv_city_star_5"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_city_star_4"
+                android:background="@mipmap/scoll_half" />
+
+            <TextView
+                android:id="@+id/tv_city_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_city_name_speak"
+                android:layout_alignBottom="@id/iv_city_star_5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_city_star_5"
+                android:text="8.7分"
+                android:textColor="#fff"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/iv_collection"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/tv_city_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:background="@mipmap/collection_unclick" />
+
+            <LinearLayout
+                android:id="@+id/ll_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_city_star_5"
+                android:layout_marginTop="140dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_scenic_spot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_scenic_spot"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/scenic_spot" />
+
+                    <TextView
+                        android:id="@+id/tv_scenic_spot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="景点"
+                        android:textColor="#fff"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_foods"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_foods"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/foods" />
+
+                    <TextView
+                        android:id="@+id/tv_foods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="美食"
+                        android:textColor="#fff"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_shopping"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_shopping"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/shopping" />
+
+                    <TextView
+                        android:id="@+id/tv_shopping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="购物"
+                        android:textColor="#fff"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_stay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_stay"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/stay" />
+
+                    <TextView
+                        android:id="@+id/tv_stay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="住宿"
+                        android:textColor="#fff"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_recommend_travel_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_city"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="精 华 游 记"
+                android:textColor="#e91e1e1e"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_recommend_travel_notes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_recommend_travel_notes"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

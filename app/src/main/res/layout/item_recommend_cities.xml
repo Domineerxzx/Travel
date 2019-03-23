@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/iv_recommend"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_recommend"
+        android:id="@+id/tv_recommend_cities_name"
+        android:text="xxxx"
+        android:maxLines="1"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_recommend_cities_name"
+        android:id="@+id/tv_recommend_abstract"
+        android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:textSize="12dp"
+        android:ellipsize="end"
+        android:textColor="#b2000000" />
+
+
+</RelativeLayout>

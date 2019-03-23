@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_search"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_search_bg">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/search" />
+
+                <TextView
+                    android:id="@+id/tv_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_search"
+                    android:background="#0000"
+                    android:gravity="center"
+                    android:hint="搜索"
+                    android:textColor="#fff"
+                    android:textColorHint="#fff"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+            <com.youth.banner.Banner
+                android:id="@+id/bn_banner"
+                android:layout_width="match_parent"
+                android:layout_height="480dp">
+
+            </com.youth.banner.Banner>
+
+            <TextView
+                android:id="@+id/tv_recommend_cities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bn_banner"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="当 季 热 门 城 市"
+                android:textColor="#e91e1e1e"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_recommend_cities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_recommend_cities"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/tv_recommend_travel_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rv_recommend_cities"
+                android:layout_centerHorizontal="true"
+                android:text="精 华 游 记"
+                android:textColor="#e91e1e1e"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_recommend_travel_notes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_recommend_travel_notes"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

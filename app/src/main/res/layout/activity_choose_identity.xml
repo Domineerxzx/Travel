@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/iv_back_to_myself"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@mipmap/back"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
+        android:background="@mipmap/logo"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_below="@id/iv_logo"
+        android:layout_marginTop="60dp"
+        android:id="@+id/ll_choose_login_way"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/bt_user_login"
+            android:text="用户  登录/注册"
+            android:textColor="#fff"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:background="@drawable/shape_choose_user_button_bg"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_gravity="center"
+            android:id="@+id/bt_admin_login"
+            android:text="管理员  登录/注册"
+            android:textSize="14dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/shape_choose_admin_button_bg"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_visitor_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ll_choose_login_way"
+        android:layout_marginTop="20dp"
+        android:text="暂不登录，我先看看"
+        android:textColor="@color/userColor"
+        android:textStyle="italic"
+        android:textSize="12dp"
+        android:gravity="center"/>
+
+
+</RelativeLayout>

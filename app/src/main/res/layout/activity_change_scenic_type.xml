@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/iv_close_change_scenic_type_info"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="修改景区分类信息"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#9dbebebe" />
+    </RelativeLayout>
+
+    <com.changxinyue.graduationproject.views.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@id/rl_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_scenic_tip"
+                android:text="输入完成请按完成确认，否则无法正确上传景区分类信息！！！"
+                android:textSize="10dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/adminColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+
+            <com.changxinyue.graduationproject.views.MyListView
+                android:id="@+id/lv_scenic_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_scenic_tip"
+                android:layout_margin="10dp"/>
+
+            <ImageView
+                android:id="@+id/iv_add_scenic_type"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/lv_scenic_type"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_choose_admin_button_bg"
+                android:src="@mipmap/add_type" />
+
+            <ImageView
+                android:id="@+id/iv_delete_scenic_type"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/iv_add_scenic_type"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_choose_admin_button_bg"
+                android:src="@mipmap/delete_scenic" />
+
+            <Button
+                android:id="@+id/bt_change_scenic_type"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/iv_delete_scenic_type"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_choose_admin_button_bg"
+                android:text="修改景区分类信息"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                android:layout_marginBottom="20dp"/>
+
+        </RelativeLayout>
+
+    </com.changxinyue.graduationproject.views.MyScrollView>
+
+</RelativeLayout>
