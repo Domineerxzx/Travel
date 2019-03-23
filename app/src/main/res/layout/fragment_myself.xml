@@ -46,15 +46,6 @@
                 android:textSize="12dp" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_message"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@mipmap/message"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"/>
     </RelativeLayout>
 
     <GridLayout

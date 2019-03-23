@@ -164,11 +164,31 @@ public class ChangeScenicInfoActivity extends Activity implements View.OnClickLi
                 iv_delete_scenic_image_show.setVisibility(View.GONE);
                 break;
             case R.id.bt_change_scenic:
-                adminManager.deleteScenic(scenicInfo.get_id());
                 String scenic_name = et_scenic_name.getText().toString().trim();
                 String scenic_content = et_scenic_content.getText().toString().trim();
                 int scenicTypeId = chooseScenicTypeInfo.getType_id();
                 String city_name = chooseCityInfo.getCity_name();
+                if (scenic_name.length() == 0){
+                    Toast.makeText(this, "景区名称不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(scenic_content.length() == 0){
+                    Toast.makeText(this, "景区描述不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(scenicTypeId == 0){
+                    Toast.makeText(this, "请选择景区类别", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(city_name.length() == 0){
+                    Toast.makeText(this, "请选择城市", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(image_show.length() == 0){
+                    Toast.makeText(this, "请上传景区图片", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                adminManager.deleteScenic(scenicInfo.get_id());
                 ContentValues scenicInfo = new ContentValues();
                 scenicInfo.put("scenic_name", scenic_name);
                 scenicInfo.put("type_id", scenicTypeId);

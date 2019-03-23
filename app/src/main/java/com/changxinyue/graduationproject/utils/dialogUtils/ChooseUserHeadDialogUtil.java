@@ -11,19 +11,31 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.changxinyue.graduationproject.R;
 import com.changxinyue.graduationproject.fragments.SubmitFragment;
 import com.changxinyue.graduationproject.properties.ProjectProperties;
 import com.changxinyue.graduationproject.utils.PermissionUtil;
+import com.changxinyue.graduationproject.utils.intentUtils.PermissionController;
 
 import java.io.File;
 
 public class ChooseUserHeadDialogUtil {
     public static void showDialog(final Context context, final String phone_number, final long timeStamp) {
-        PermissionUtil.requestPower(context, ((Activity) context), "android.permission.CAMERA");
-        PermissionUtil.requestPower(context, ((Activity) context), "android.permission.WRITE_EXTERNAL_STORAGE");
+        boolean checkPermission = PermissionUtil.checkPermission(context, "android.permission.CAMERA");
+        if (!checkPermission) {
+            Toast.makeText(context, "未授权拍照或录像，请设置开启权限", Toast.LENGTH_SHORT).show();
+            PermissionController.gotoMeizuPermission(context);
+            return;
+        }
+        checkPermission = PermissionUtil.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (!checkPermission) {
+            Toast.makeText(context, "未授权读写手机存储，请设置开启权限", Toast.LENGTH_SHORT).show();
+            PermissionController.gotoMeizuPermission(context);
+            return;
+        }
         View view = View.inflate(context, R.layout.dialog_select_photo, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         final AlertDialog dialog = builder.setView(view).create();
@@ -69,8 +81,18 @@ public class ChooseUserHeadDialogUtil {
     }
 
     public static void showSelectSubmitDialog(final Context context, final SubmitFragment fragment, final String phone_number, final long timeStamp) {
-        PermissionUtil.requestPower(context, ((Activity) context), "android.permission.CAMERA");
-        PermissionUtil.requestPower(context, ((Activity) context), "android.permission.WRITE_EXTERNAL_STORAGE");
+        boolean checkPermission = PermissionUtil.checkPermission(context, "android.permission.CAMERA");
+        if (!checkPermission) {
+            Toast.makeText(context, "未授权拍照或录像，请设置开启权限", Toast.LENGTH_SHORT).show();
+            PermissionController.gotoMeizuPermission(context);
+            return;
+        }
+        checkPermission = PermissionUtil.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (!checkPermission) {
+            Toast.makeText(context, "未授权读写手机存储，请设置开启权限", Toast.LENGTH_SHORT).show();
+            PermissionController.gotoMeizuPermission(context);
+            return;
+        }
         View view = View.inflate(context, R.layout.dialog_select_submit, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         final AlertDialog dialog = builder.setView(view).create();

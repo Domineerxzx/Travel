@@ -3,6 +3,7 @@ package com.changxinyue.graduationproject.adapters;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,12 +19,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.changxinyue.graduationproject.R;
 import com.changxinyue.graduationproject.beans.SubmitInfo;
 import com.changxinyue.graduationproject.database.MyOpenHelper;
+import com.changxinyue.graduationproject.utils.dialogUtils.ShareUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DynamicAdapter extends BaseAdapter {
 
+    private final List<List<String>> allImageList;
     private Context context;
     private List<SubmitInfo> submitInfoList;
     private List<String> submitImageList;
@@ -31,6 +34,7 @@ public class DynamicAdapter extends BaseAdapter {
     public DynamicAdapter(Context context, List<SubmitInfo> submitInfoList) {
         this.context = context;
         this.submitInfoList = submitInfoList;
+        allImageList = new ArrayList<>();
     }
 
     @Override
@@ -49,7 +53,7 @@ public class DynamicAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if(convertView == null){
             viewHolder = new ViewHolder();
@@ -58,6 +62,7 @@ public class DynamicAdapter extends BaseAdapter {
             viewHolder.tv_dynamic_content = convertView.findViewById(R.id.tv_dynamic_content);
             viewHolder.rv_dynamic = convertView.findViewById(R.id.rv_dynamic);
             viewHolder.iv_user_head = convertView.findViewById(R.id.iv_user_head);
+            viewHolder.iv_share = convertView.findViewById(R.id.iv_share);
             convertView.setTag(viewHolder);
         }else{
             viewHolder= (ViewHolder) convertView.getTag();
@@ -79,6 +84,7 @@ public class DynamicAdapter extends BaseAdapter {
                 submitImageList.add(submitImage);
             }
         }
+        allImageList.add(submitImageList);
         if (submitImageInfoCursor != null) {
             submitImageInfoCursor.close();
         }
@@ -89,6 +95,16 @@ public class DynamicAdapter extends BaseAdapter {
                 .apply(RequestOptions.bitmapTransform(new CircleCrop())).into(viewHolder.iv_user_head);
         viewHolder.rv_dynamic.setLayoutManager(gridLayoutManager);
         viewHolder.rv_dynamic.setAdapter(new PhotoWallAdapter(context,submitImageList));
+        viewHolder.iv_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Uri> uris = new ArrayList<>();
+                for (String imagePath : allImageList.get(position)) {
+                    uris.add(Uri.parse(imagePath));
+                }
+                ShareUtil.sendMoreImage(context,uris,"分享发布给朋友");
+            }
+        });
         return convertView;
     }
 
@@ -97,6 +113,7 @@ public class DynamicAdapter extends BaseAdapter {
         private RecyclerView rv_dynamic;
         private ImageView iv_user_head;
         private TextView tv_dynamic_content;
+        private ImageView iv_share;
     }
 
 }

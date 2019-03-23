@@ -49,6 +49,10 @@ public class AdminManager {
         db.delete("scenicTypeInfo", null, null);
         for (ScenicTypeInfo scenicTypeInfo : scenicTypeInfoList) {
             ContentValues contentValues = new ContentValues();
+            if(scenicTypeInfo.getType_name().length() == 0){
+                Toast.makeText(context, "分类名称不能为空", Toast.LENGTH_SHORT).show();
+                return;
+            }
             contentValues.put("type_name", scenicTypeInfo.getType_name());
             db.insert("scenicTypeInfo", null, contentValues);
         }
