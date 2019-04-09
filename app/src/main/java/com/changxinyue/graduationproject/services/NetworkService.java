@@ -293,9 +293,9 @@ public class NetworkService extends Service {
                     contentValues.put("password", password);
                     contentValues.put("nickname", nickname);
                     long userInfo = writableDatabase.insert("userInfo", null, contentValues);
-                    System.out.println("SUCCESS-----------------------数据库插入成功" + userInfo);
                     if (userInfo != -1) {
                         writableDatabase.close();
+                        System.out.println("SUCCESS-----------------------数据库插入成功" + userInfo);
                     } else {
                         System.out.println("error-----------------------数据库插入失败" + userInfo);
                         writableDatabase.close();
