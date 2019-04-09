@@ -20,7 +20,6 @@ public class SubmitManager {
         MyOpenHelper myOpenHelper = new MyOpenHelper(context);
         SQLiteDatabase db = myOpenHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("submit_id",submitInfo.getSubmit_id());
         contentValues.put("phone_number",submitInfo.getPhone_number());
         contentValues.put("nickname",submitInfo.getNickname());
         contentValues.put("user_head",submitInfo.getUser_head());

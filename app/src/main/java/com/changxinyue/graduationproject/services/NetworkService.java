@@ -198,7 +198,7 @@ public class NetworkService extends Service {
             public void onResponse(Call call, Response response) throws IOException {
                 String login_message = response.body().string();
                 System.out.println("login" + "------------------------------------" + login_message);
-                if (login_message.contains("{\"message\":1}")) {
+                if (login_message.contains("\"message\":1")) {
 
                     MyOpenHelper myOpenHelper = new MyOpenHelper(context);
                     SQLiteDatabase writableDatabase = myOpenHelper.getWritableDatabase();

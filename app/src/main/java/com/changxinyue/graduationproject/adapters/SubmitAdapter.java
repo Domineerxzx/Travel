@@ -94,6 +94,7 @@ public class SubmitAdapter extends RecyclerView.Adapter<SubmitAdapter.ViewHolder
 
         private void initView(View itemView) {
             iv_submit = itemView.findViewById(R.id.iv_submit);
+            iv_submit.setScaleType(ImageView.ScaleType.CENTER_CROP);
             iv_delete_submit = itemView.findViewById(R.id.iv_delete_submit);
             ll_delete_submit = itemView.findViewById(R.id.ll_delete_submit);
         }
