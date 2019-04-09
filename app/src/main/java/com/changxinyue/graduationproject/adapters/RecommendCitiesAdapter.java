@@ -17,6 +17,7 @@ import com.changxinyue.graduationproject.activities.ScenicActivity;
 import com.changxinyue.graduationproject.beans.CityInfo;
 import com.changxinyue.graduationproject.interfaces.OnItemClickListener;
 
+import java.io.File;
 import java.util.List;
 
 public class RecommendCitiesAdapter extends RecyclerView.Adapter<RecommendCitiesAdapter.ViewHolder> {
@@ -57,7 +58,7 @@ public class RecommendCitiesAdapter extends RecyclerView.Adapter<RecommendCities
         if (cityInfoList.get(i).getCity_image() == null || cityInfoList.get(i).getCity_image().length() == 0) {
             Glide.with(context).load(R.drawable.image_default).into(viewHolder.iv_recommend);
         } else {
-            Glide.with(context).load(cityInfoList.get(i).getCity_image()).into(viewHolder.iv_recommend);
+            Glide.with(context).load(new File(cityInfoList.get(i).getCity_image())).into(viewHolder.iv_recommend);
         }
     }
 

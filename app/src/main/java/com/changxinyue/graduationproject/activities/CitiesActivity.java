@@ -41,6 +41,7 @@ public class CitiesActivity extends Activity implements View.OnClickListener, On
     private SharedPreferences userInfo;
     private String phone_number;
     private boolean isCollection;
+    private TextView tv_city_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class CitiesActivity extends Activity implements View.OnClickListener, On
         Intent intent = getIntent();
         cityInfo = (CityInfo) intent.getSerializableExtra("CityInfo");
         cityInfo = cityManager.getCityInfo(cityInfo.getCity_name());
+        tv_city_content.setText("        "+cityInfo.getCity_content());
         String city_image = cityInfo.getCity_image();
         Glide.with(this).load(city_image).apply(RequestOptions.bitmapTransform(new BlurTransformation(15,1))).into(iv_city);
         travelNoteInfoList = cityManager.getTravelNoteInfoList(cityInfo.getCity_name());
@@ -89,11 +91,11 @@ public class CitiesActivity extends Activity implements View.OnClickListener, On
         };
         rv_recommend_travel_notes.setLayoutManager(gridLayoutManager);
         iv_city = (ImageView) findViewById(R.id.iv_city);
-        iv_city.setScaleType(ImageView.ScaleType.FIT_XY);
         tv_city_name = (TextView) findViewById(R.id.tv_city_name);
         tv_city_name_speak = (TextView) findViewById(R.id.tv_city_name_speak);
         tv_city_score = (TextView) findViewById(R.id.tv_city_score);
         iv_collection = (ImageView) findViewById(R.id.iv_collection);
+        tv_city_content = (TextView) findViewById(R.id.tv_city_content);
     }
 
     @Override

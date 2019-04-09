@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.changxinyue.graduationproject.R;
 import com.changxinyue.graduationproject.adapters.SearchHistoryAdapter;
+import com.changxinyue.graduationproject.adapters.SearchResultAdapter;
 import com.changxinyue.graduationproject.adapters.TypeContentAdapter;
 import com.changxinyue.graduationproject.beans.ScenicInfo;
 import com.changxinyue.graduationproject.interfaces.OnItemClickListener;
@@ -37,7 +38,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Ada
     private RecyclerView rv_search_result;
     private ImageView iv_close_search;
     private SearchHistoryAdapter searchHistoryAdapter;
-    private TypeContentAdapter searchResultAdapter;
+    private SearchResultAdapter searchResultAdapter;
     private List<ScenicInfo> scenicInfoList;
     private EditText et_search;
     private SearchManager searchManager;
@@ -153,7 +154,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Ada
                 rl_history.setVisibility(View.GONE);
                 rv_search_result.setVisibility(View.VISIBLE);
                 rl_no_search.setVisibility(View.GONE);
-                searchResultAdapter = new TypeContentAdapter(this, searchInfoList);
+                searchResultAdapter = new SearchResultAdapter(this, searchInfoList);
                 rv_search_result.setAdapter(searchResultAdapter);
                 searchResultAdapter.setOnItemClickListener(new OnItemClickListener() {
                     @Override

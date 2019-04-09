@@ -16,8 +16,8 @@
             <ImageView
                 android:id="@+id/iv_city"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/line" />
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"/>
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -121,126 +121,33 @@
                 android:layout_marginRight="30dp"
                 android:background="@mipmap/collection_unclick" />
 
-            <LinearLayout
-                android:id="@+id/ll_navigation"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_city_content_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_city_star_5"
-                android:layout_marginTop="140dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/ll_scenic_spot"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_scenic_spot"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:src="@mipmap/scenic_spot" />
-
-                    <TextView
-                        android:id="@+id/tv_scenic_spot"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="景点"
-                        android:textColor="#fff"
-                        android:textSize="10dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_foods"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_foods"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:src="@mipmap/foods" />
-
-                    <TextView
-                        android:id="@+id/tv_foods"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="美食"
-                        android:textColor="#fff"
-                        android:textSize="10dp" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_shopping"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_shopping"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:src="@mipmap/shopping" />
-
-                    <TextView
-                        android:id="@+id/tv_shopping"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="购物"
-                        android:textColor="#fff"
-                        android:textSize="10dp" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_stay"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_stay"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:src="@mipmap/stay" />
-
-                    <TextView
-                        android:id="@+id/tv_stay"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="住宿"
-                        android:textColor="#fff"
-                        android:textSize="10dp" />
-
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_below="@id/iv_city"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="城 市 简 介"
+                android:textColor="#e91e1e1e"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_city_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_city_content_title"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000"
+                android:textSize="15dp"/>
 
             <TextView
                 android:id="@+id/tv_recommend_travel_notes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_city"
+                android:layout_below="@id/tv_city_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:text="精 华 游 记"

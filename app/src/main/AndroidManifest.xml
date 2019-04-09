@@ -15,11 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.UserLoginActivity" />
-        <activity android:name=".activities.UserRegisterActivity" />
-        <activity android:name=".activities.AdminLoginActivity" />
-        <activity android:name=".activities.AdminRegisterActivity" />
         <activity android:name=".activities.ChooseIdentityActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.UserLoginActivity" />
+        <activity android:name=".activities.UserRegisterActivity" />
+        <activity android:name=".activities.AdminLoginActivity" />
+        <activity android:name=".activities.AdminRegisterActivity" />
         <activity android:name=".activities.ScenicActivity" />
         <activity android:name=".activities.CitiesActivity" />
         <activity android:name=".activities.SearchActivity" />
@@ -35,26 +35,26 @@
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.AdminManagerActivity" />
         <activity android:name=".activities.AboutUsActivity" />
-
-        <service android:name=".services.NetworkService" />
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.changxinyue.graduationproject"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
         <activity android:name=".activities.FeedbackActivity" />
         <activity android:name=".activities.AddScenicActivity" />
         <activity android:name=".activities.BrowseScenicInfoActivity" />
         <activity android:name=".activities.DeleteScenicActivity" />
         <activity android:name=".activities.ChangeScenicTypeActivity" />
         <activity android:name=".activities.ChangeScenicInfoActivity" />
-        <activity android:name=".activities.CollectionActivity"></activity>
+        <activity android:name=".activities.CollectionActivity"/>
+
+        <service android:name=".services.NetworkService" />
+
+        <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="com.changxinyue.graduationproject"
+        android:exported="false"
+        android:grantUriPermissions="true">
+            <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

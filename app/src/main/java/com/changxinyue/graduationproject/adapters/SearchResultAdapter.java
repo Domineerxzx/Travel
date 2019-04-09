@@ -10,73 +10,88 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.changxinyue.graduationproject.R;
 import com.changxinyue.graduationproject.activities.ScenicActivity;
+import com.changxinyue.graduationproject.beans.ScenicInfo;
+import com.changxinyue.graduationproject.interfaces.OnItemClickListener;
 
 import java.util.List;
 
-public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder> implements View.OnClickListener {
-    private Context context;
-    private List<String> data;
+public class SearchResultAdapter extends RecyclerView.Adapter{
 
-    public SearchResultAdapter(Context context, List<String> data) {
+    private Context context;
+    private List<ScenicInfo> scenicInfoList;
+    private OnItemClickListener onItemClickListener;
+
+    public SearchResultAdapter(Context context, List<ScenicInfo> scenicInfoList) {
         this.context = context;
-        this.data = data;
+        this.scenicInfoList = scenicInfoList;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public List<ScenicInfo> getScenicInfoList() {
+        return scenicInfoList;
+    }
+
+    public void setScenicInfoList(List<ScenicInfo> scenicInfoList) {
+        this.scenicInfoList = scenicInfoList;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.item_search_result, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(inflate);
+    public SearchResultAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(context).inflate(R.layout.item_search_result, parent, false);
+        SearchResultAdapter.ViewHolder viewHolder = new SearchResultAdapter.ViewHolder(inflate, onItemClickListener);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+        ViewHolder holder = (SearchResultAdapter.ViewHolder) viewHolder;
+        if (scenicInfoList.get(i).getScenic_image().length() == 0) {
+            Glide.with(context).load(R.drawable.image_default).into(holder.iv_search_result);
+        } else {
+            Glide.with(context).load(scenicInfoList.get(i).getScenic_image()).into(holder.iv_search_result);
+        }
+        holder.tv_search_result_title.setText(scenicInfoList.get(i).getScenic_name());
+        holder.tv_search_result_abstract.setText(scenicInfoList.get(i).getScenic_content());
     }
+
 
     @Override
     public int getItemCount() {
-        return 15;
+        return scenicInfoList.size();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.iv_search_result:
-            case R.id.tv_search_result_title:
-            case R.id.tv_search_result_abstract:
-                Intent intent = new Intent(context, ScenicActivity.class);
-                context.startActivity(intent);
-                break;
-        }
-    }
+    private class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
+        private final OnItemClickListener onItemClickListener;
         private ImageView iv_search_result;
         private TextView tv_search_result_title;
         private TextView tv_search_result_abstract;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,OnItemClickListener onItemClickListener) {
             super(itemView);
             initView(itemView);
-            setOnClickListener();
+            this.onItemClickListener = SearchResultAdapter.this.onItemClickListener;
+            itemView.setOnClickListener(this);
         }
 
         private void initView(View itemView) {
-            iv_search_result = itemView.findViewById(R.id.iv_recommend);
-            tv_search_result_title = itemView.findViewById(R.id.tv_recommend_title);
-            tv_search_result_abstract = itemView.findViewById(R.id.tv_recommend_abstract);
-
+            iv_search_result = itemView.findViewById(R.id.iv_search_result);
+            iv_search_result.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tv_search_result_title = itemView.findViewById(R.id.tv_search_result_title);
+            tv_search_result_abstract = itemView.findViewById(R.id.tv_search_result_abstract);
         }
 
-        private void setOnClickListener() {
-            iv_search_result.setOnClickListener(SearchResultAdapter.this);
-            tv_search_result_title.setOnClickListener(SearchResultAdapter.this);
-            tv_search_result_abstract.setOnClickListener(SearchResultAdapter.this);
+        @Override
+        public void onClick(View v) {
+            SearchResultAdapter.this.onItemClickListener.onItemClick(v, getPosition());
         }
     }
 }

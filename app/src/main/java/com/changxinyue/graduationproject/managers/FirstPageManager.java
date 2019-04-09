@@ -65,15 +65,15 @@ public class FirstPageManager {
         List<TravelNoteInfo> travelNoteInfoList = new ArrayList<>();
         MyOpenHelper myOpenHelper = new MyOpenHelper(context);
         SQLiteDatabase db = myOpenHelper.getWritableDatabase();
-        Cursor cityRecommendInfoCursor = db.query("travelNoteInfo", null, null, null, null, null, null);
-        if(cityRecommendInfoCursor != null && cityRecommendInfoCursor.getCount() > 0){
-            while (cityRecommendInfoCursor.moveToNext()) {
+        Cursor travelNoteInfoCursor = db.query("travelNoteInfo", null, null, null, null, null, null);
+        if(travelNoteInfoCursor != null && travelNoteInfoCursor.getCount() > 0){
+            while (travelNoteInfoCursor.moveToNext()) {
                 TravelNoteInfo travelNoteInfo = new TravelNoteInfo();
-                travelNoteInfo.set_id(cityRecommendInfoCursor.getInt(0));
-                travelNoteInfo.setCity_name(cityRecommendInfoCursor.getString(1));
-                travelNoteInfo.setTitle(cityRecommendInfoCursor.getString(2));
-                travelNoteInfo.setContent(cityRecommendInfoCursor.getString(3));
-                travelNoteInfo.setImage(cityRecommendInfoCursor.getString(4));
+                travelNoteInfo.set_id(travelNoteInfoCursor.getInt(0));
+                travelNoteInfo.setCity_name(travelNoteInfoCursor.getString(1));
+                travelNoteInfo.setTitle(travelNoteInfoCursor.getString(2));
+                travelNoteInfo.setContent(travelNoteInfoCursor.getString(3));
+                travelNoteInfo.setImage(travelNoteInfoCursor.getString(4));
                 travelNoteInfoList.add(travelNoteInfo);
             }
         }
